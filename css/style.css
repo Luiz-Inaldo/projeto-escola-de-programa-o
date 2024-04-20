@@ -1,0 +1,623 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+
+/* geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #fafafa;
+}
+
+@keyframes blink {
+    50% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: visible;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* dialog & alert */
+.alert {
+    position: fixed;
+    z-index: 3;
+    width: 200px;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    top: 0;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    font-size: .8rem;
+    left: calc(50% - 100px);
+    background: #fafafa;
+    transition: .2s;
+}
+
+.alert p {
+    max-width: 180px;
+    margin: 0 auto;
+}
+
+.show-alert {
+    padding: 1rem 0;
+    height: fit-content;
+    transition: .2s;
+}
+
+
+.dialog-container {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 20%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog {
+    text-align: center;
+    gap: .5rem;
+    width: 200px;
+    padding: 1rem;
+    background: #fafafa;
+    box-shadow: 0 0 20px #000;
+    border-radius: 10px;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 40px;
+    padding: 8px;
+    margin: 0 auto .5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #16649c;
+    --_m: 
+      conic-gradient(#0000 10%,#000),
+      linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+    -webkit-mask-composite: source-out;
+            mask-composite: subtract;
+    animation: l3 1s infinite linear;
+  }
+  @keyframes l3 {to{transform: rotate(1turn)}}
+
+/* initiate login/register screen configs */
+
+/* container */
+.login-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+/* background */
+#background {
+    width: 70%;
+}
+
+#background svg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: block;
+    background-color: #0e4166;
+    background-image: linear-gradient(to bottom, rgba(14, 65, 102, 0.86), #0e4166);
+}
+
+/* login */
+#background .login-text {
+    position: relative;
+    padding: 0 5rem;
+    height: 100%;
+    color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-shadow: 2px 2px 2px #111;
+    background: rgb(0 0 0 / 20%);
+}
+
+.login-text h1 {
+    font-family: 'Oxanium', sans-serif;
+    font-weight: lighter;
+    font-size: 4.5rem;
+    font-style: italic;
+}
+
+.login-text h1 span {
+    visibility: hidden;
+    animation: blink 1s infinite;
+}
+
+.login-text p {
+    font-size: 2rem;
+}
+
+.login-text :nth-child(3) {
+    position: absolute;
+    bottom: 5px;
+    margin-top: 3rem;
+    color: #ddd;
+    font-size: 1rem;
+}
+
+.login-text p span {
+    color: #2dec2d;
+    font-style: italic;
+}
+
+/* form-container */
+#form-container {
+    position: relative;
+    width: 30%;
+    height: 100vh;
+    background: #fafafa;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#switch-forms {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0px 0px 1px #111;
+}
+
+.switcher {
+    position: relative;
+    background: #ddd;
+    color: #333;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.switcher.active {
+    background: #16649c;
+    color: #f0f0f0;
+    transition: .2s;
+}
+
+.select-arrow {
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: inherit;
+    bottom: 0px;
+}
+
+.select-arrow.active {
+    rotate: 45deg;
+    background: #16649c;
+    bottom: -8px;
+    transition: .2s;
+}
+
+/* forms */
+#login-form,
+#register-form  {
+    width: 320px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form h2,
+#register-form h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form-control label {
+    margin-bottom: .2rem;
+    font-weight: bold;
+}
+
+.form-control input {
+    padding: .5rem 0;
+    border: none;
+    font-size: .9rem;
+    background: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+}
+
+input[type="submit"] {
+    padding: .7rem 2rem;
+    border: none;
+    background: #16649c;
+    color: #fafafa;
+    cursor: pointer;
+    font-size: .9rem;
+    margin: 0 auto;
+}
+
+input[type="submit"]:hover {
+    opacity: .9;
+    transition: .2s;
+}
+
+#login-form p {
+    margin-top: 2rem;
+    text-align: center;
+    color: #777;
+    font-size: .8rem;
+}
+
+#login-form #forgot-password {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: #16649c;
+    text-align: left;
+    cursor: pointer;
+    font-size: .7rem;
+}
+
+#login-form p span {
+    color: #16649c;
+}
+
+#login-form p span:hover {
+    cursor: pointer;
+    color: #0e4166;
+}
+
+#login-form #login-error-message,
+#register-form #register-error-message,
+#register-form #register-success-message {
+    max-width: 200px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 3rem;
+    font-size: .8rem;
+}
+
+#login-form #login-error-message,
+#register-form #register-error-message {
+    color: #fc3333;
+}
+
+#register-form #register-success-message {
+    color: #09aa09;
+}
+
+#register-form p {
+    text-align: center;
+    color: #777;
+    font-size: .8rem;
+    margin-bottom: 1rem;
+}
+
+#register-form p span {
+    color: #16649c;
+    cursor: pointer;
+}
+
+#register-form p span:hover {
+    color: #0e4166;
+    transition: .2s;
+}
+
+#generated-password {
+    margin-top: 1rem;
+    padding: .3rem;
+    border: 1px solid #1c6599;
+    border-radius: 10px;
+}
+
+#generated-password p {
+    margin-bottom: .5rem;
+}
+
+#generated-password h4 {
+    font-weight: bold;
+    color: #0e4166;
+    text-align: center;
+}
+
+
+/* footer */
+#footer {
+    position: absolute;
+    bottom: 0;
+    padding: .5rem;
+}
+
+#footer p {
+    font-size: .8rem;
+    color: #666;
+}
+
+/* end login/register configs */
+
+
+
+/* initiate home & general configs */
+/* header */
+header {
+    background-color: #16649c;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 80px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: #fafafa
+}
+
+#navbar > a h1 {
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    border-bottom: 1px solid #fafafa;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#navbar > a h1:hover {
+    transform: translate(-5px, -5px);
+    transition: .2s;
+}
+
+#navbar-links > a {
+    margin-inline: 1rem;
+    padding: 10px 20px;
+    border-radius: 10rem;
+    color: #fafafa;
+}
+
+#navbar-links> a:hover {
+    background: rgb(0 0 0 / 15%);
+    color: #fff;
+}
+
+#user-pannel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 10rem;
+}
+
+#user-pannel:hover {
+    background: rgb(0 0 0 / 15%);
+    /* cursor: pointer; */
+}
+
+.menu {
+    position: absolute;
+    top: 55px;
+    left: -70px;
+    width: 200px;
+    padding-bottom: 1rem;
+    background: #414541;
+    display: grid;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+}
+
+.menu::before {
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    rotate: 45deg;
+    right: calc(50% - 3px);
+    top: -9px;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-top-left-radius: 5px;
+    background: #458bbd;
+}
+
+.menu .menu-header {
+    color: #fff;
+    background: #458bbd;
+    text-align: center;
+    font-weight: 500;
+    height: 60px;
+    margin-bottom: 1rem;
+    padding-block: .2rem;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px 5px 0 0;
+}
+
+.menu .menu-header .user-mail {
+    font-size: .8rem;
+    color: #f1f1f1;
+    font-weight: 500;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-block: 5px;
+    padding: 7px 10px;
+    cursor: pointer;
+}
+
+.menu a:hover {
+    background: rgb(255 255 255 / 15%);
+    color: #fafafa !important;
+}
+
+#user-pannel:hover .menu {
+    opacity: 1;
+    visibility: visible;
+    transition: .4s;
+}
+
+/* container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    height: 100vh;
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: .3rem;
+    padding-top: 2rem
+}
+
+.container > p {
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #555;
+}
+
+article {
+    padding: 0 1rem 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+article h2 {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 1rem;
+}
+
+/* promoted-courses-container */
+#promoted-courses-container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 1rem 0;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.course {
+    display: flex;
+    flex: 1;
+    max-height: 155px;
+}
+
+.course-img {
+    width: 250px;
+}
+
+.course-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.course-corpse {
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.course-title {
+    margin-bottom: .5rem;
+}
+
+.course-description {
+    color: #555;
+    font-style: italic;
+    font-weight: 400;
+    font-size: .9rem;
+    margin-bottom: .8rem;
+}
+
+.course-price {
+    margin-bottom: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-price .price {
+    color: #555;
+    text-decoration: line-through;
+    font-style: italic;
+    margin-right: 1rem;
+}
+
+.course-price .promoted-price {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.course .aquire {
+    width: 200px;
+    padding: .2rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    background: #458bbd;
+    border: none;
+    cursor: pointer;
+    color: #fafafa;
+    border-radius: 50px;
+}
+
+.course .aquire:hover {
+    opacity: .9;
+    transition: .2s;
+}
+
+.course .aquire svg {
+    transition: .5s;
+}
+
+.course .aquire:hover svg {
+    translate: 10px 0;
+    transition: .5s;
+}
