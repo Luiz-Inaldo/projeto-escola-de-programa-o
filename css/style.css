@@ -521,7 +521,7 @@ header {
 article {
     padding: 0 1rem 1rem;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: 1px solid #ddd;
 }
 
 article h2 {
@@ -549,6 +549,7 @@ article h2 {
 
 .course-img {
     width: 250px;
+    flex-shrink: 0;
 }
 
 .course-img img {
@@ -583,16 +584,18 @@ article h2 {
     flex-direction: column;
 }
 
+.course-price .promoted-price,
 .course-price .price {
-    color: #555;
-    text-decoration: line-through;
-    font-style: italic;
-    margin-right: 1rem;
-}
-
-.course-price .promoted-price {
     font-weight: bold;
     font-size: 1.2rem;
+}
+
+.course-price .price.lined {
+    color: #555;
+    text-decoration: line-through;
+    font-size: 1rem;
+    font-style: italic;
+    margin-right: 1rem;
 }
 
 .course .aquire {
@@ -600,6 +603,7 @@ article h2 {
     padding: .2rem 1rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: .8rem;
     background: #458bbd;
     border: none;
@@ -609,7 +613,6 @@ article h2 {
 }
 
 .course .aquire:hover {
-    opacity: .9;
     transition: .2s;
 }
 
@@ -618,6 +621,11 @@ article h2 {
 }
 
 .course .aquire:hover svg {
-    translate: 10px 0;
+    translate: 5px 0;
     transition: .5s;
+}
+
+.course .aquire.disabled {
+    filter: grayscale(100%);
+    pointer-events: none;
 }

@@ -25,4 +25,6 @@ export const DOMElements = {
     dialogContainer: document.querySelector('.dialog-container'),
     dialogElement: document.querySelector('.dialog'),
     alertElement: document.querySelector('.alert'),
+    /* home elements*/
+    featuredCoursesList: document.getElementById('promoted-courses-container')
 }

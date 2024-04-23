@@ -79,7 +79,7 @@ const generatePassword = () => {
 
 const login = async () => {
 
-    const db = JSON.parse(localStorage.getItem('users')) || []
+    const users = JSON.parse(localStorage.getItem('users')) || []
     const username = DOMElements.loginUsernameInput.value
     const password = DOMElements.loginPasswordInput.value
 
@@ -92,10 +92,10 @@ const login = async () => {
 
     let successfullLogin = false;
 
-    db.forEach(user => {
+    users.forEach(user => {
 
         if (user.username === username && user.password === password) {
-            const loggedUser = db.find(user => user.username == username)
+            const loggedUser = users.find(user => user.username == username)
             delete loggedUser.password
             sessionStorage.setItem('loggedUser', JSON.stringify(loggedUser))
             successfullLogin = true
@@ -117,22 +117,23 @@ const register = async () => {
     const email = DOMElements.registerEmailInput.value
     const password = DOMElements.registerPasswordInput.value
     const confirmPassword = DOMElements.registerConfirmPasswordInput.value
+    const users = JSON.parse(localStorage.getItem('users')) || []
 
     const newUser = {
         id: 1,
         username: username,
         email: email,
-        password: password
+        password: password,
+        cash: 200
     }
 
     if (username.length < 5 || username.length > 30) {
         return callAlert("erro", "O campo nome de usuário deve conter no mínimo 5 caracteres.")
     }
 
-    const db = JSON.parse(localStorage.getItem('users')) || []
     let checkExistentUser = false;
 
-    db.forEach(user => {
+    users.forEach(user => {
 
         if (user.id == newUser.id) newUser.id++;
 
@@ -147,8 +148,8 @@ const register = async () => {
         await callDialogLoader(`Cadastrando usuário...`)
         callAlert("sucesso", "Usuário cadastrado com sucesso!")
         clearValues()
-        db.push(newUser)
-        localStorage.setItem('users', JSON.stringify(db))
+        users.push(newUser)
+        localStorage.setItem('users', JSON.stringify(users))
     } else {
         callAlert("erro", "Os campos de senha devem coincidir.")
     }
