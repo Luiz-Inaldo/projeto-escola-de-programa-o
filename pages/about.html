@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <script type="module" src="/js/main.js" defer></script>
-    <title>Coders - home</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="module" src="../js/main.js" defer></script>
+    <title>Coders: Sobre nós</title>
 </head>
 
 <body>
@@ -27,11 +27,11 @@
     <header>
 
         <div id="navbar">
-            <a href="/templates/home.html">
+            <a href="/pages/home.html">
                 <h1>CODERS</h1>
             </a>
             <div id="navbar-links">
-                <a href="#">
+                <a href="/pages/about.html">
                     Sobre Nós
                 </a>
                 <a href="#">
@@ -111,23 +111,48 @@
         </div>
 
     </header>
+
     <!-- main -->
     <main>
         <div class="container">
-            <h1>Bem-vindo, dev!</h1>
-            <p>o primeiro passo você já deu, agora vamos por a mão na massa!</p>
-            <article>
-                <h2>cursos em destaque:</h2>
-                <div id="promoted-courses-container"></div>
-            </article>
-            <article>
-                <h2>continue de onde parou:</h2>
-                <div id="started-courses">
-                    <p>parece que você ainda não iniciou nenhum curso 🥲</p>
-                </div>
-            </article>
+            <h1>sobre nossa plataforma</h1>
+            <div id="about-banner">
+                <img src="/img/banner.webp" alt="banner">
+            </div>
+            <div id="container-text">
+                <p>
+                    Coders é a plataforma definitiva para quem busca dominar o mundo da programação de forma
+                    flexível e conveniente. Com uma ampla gama de cursos online ministrados por especialistas da
+                    indústria, oferecemos uma abordagem prática e orientada para projetos que permite aos alunos
+                    aprenderem no seu próprio ritmo, de qualquer lugar do mundo. Nossa plataforma intuitiva e fácil de
+                    usar proporciona acesso a recursos de aprendizado interativos, comunidades de alunos e suporte
+                    dedicado, garantindo uma experiência educacional enriquecedora e envolvente. Seja você um iniciante
+                    absoluto ou um desenvolvedor experiente em busca de aprimoramento, na Coders, você
+                    encontrará os recursos necessários para impulsionar sua carreira na programação. Junte-se a nós e
+                    embarque na jornada rumo à maestria técnica e ao sucesso profissional.
+                </p>
+            </div>
+            <a href="#">
+                conheça nossos cursos
+            </a>
         </div>
     </main>
+
+    <!-- footer -->
+    <footer>
+        <div id="footer-container">
+            <div id="footer-inner-title">
+                <h2>CODERS</h2>
+                <p>&copy;2024, desenvolvido por Luiz Inaldo</p>
+            </div>
+            <div id="footer-inner-links">
+                <a href="#">sobre nós</a>
+                <a href="#">nossos cursos</a>
+                <a href="#">entre em contato</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 
 </html>

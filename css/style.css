@@ -11,6 +11,7 @@
 
 body {
     background: #fafafa;
+    min-height: 100vh;
 }
 
 @keyframes blink {
@@ -310,15 +311,6 @@ input[type="submit"]:hover {
     font-size: .8rem;
 }
 
-#login-form #login-error-message,
-#register-form #register-error-message {
-    color: #fc3333;
-}
-
-#register-form #register-success-message {
-    color: #09aa09;
-}
-
 #register-form p {
     text-align: center;
     color: #777;
@@ -600,7 +592,7 @@ article h2 {
 
 .course .aquire {
     width: 200px;
-    padding: .2rem 1rem;
+    padding: .25rem 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -629,3 +621,49 @@ article h2 {
     filter: grayscale(100%);
     pointer-events: none;
 }
+
+/* footer */
+footer {
+    background-color: #16649c;
+}
+
+#footer-container {
+    padding: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #fafafa;
+}
+
+#footer-inner-title h2 {
+    font-family: 'Oxanium';
+    font-style: italic;
+}
+
+#footer-inner-title p {
+    font-size: .75rem;
+    font-weight: 300;
+}
+
+#footer-inner-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 80px;
+}
+
+#footer-inner-links a {
+    color: #fafafa;
+    text-decoration: none;
+    font-size: .8rem;
+}
+
+#footer-inner-links a:hover {
+    color: #fff;
+}
+
+/* end general configs */
+
+/* about page configs */

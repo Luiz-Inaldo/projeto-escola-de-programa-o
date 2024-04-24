@@ -2,7 +2,7 @@ import { DOMElements } from "./DOMElements.js"
 import { callDialogLoader, callAlert } from "./globalFunctions.js"
 
 //verificando se existe sessão aberta
-if (sessionStorage.getItem('loggedUser')) window.location.href = "/templates/home.html"
+if (sessionStorage.getItem('loggedUser')) window.location.href = "/pages/home.html"
 
 //eventos
 DOMElements.loginSwitcher.addEventListener('click', () => {
@@ -107,7 +107,7 @@ const login = async () => {
 
     await callDialogLoader(`fazendo login...`)
 
-    window.location.href = '/templates/home.html'
+    window.location.href = '/pages/home.html'
 
 }
 
