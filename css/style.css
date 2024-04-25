@@ -495,13 +495,17 @@ header {
     max-width: 800px;
     margin: 0 auto;
     background: #fff;
-    height: 100vh;
+    min-height: 100vh;
+    padding-inline: 1rem;
+    padding-bottom: 5rem;
+    color: #333;
 }
 
 .container h1 {
     text-align: center;
     margin-bottom: .3rem;
-    padding-top: 2rem
+    padding-top: 2rem;
+    color: #333;
 }
 
 .container > p {
@@ -511,7 +515,7 @@ header {
 }
 
 article {
-    padding: 0 1rem 1rem;
+    padding-bottom: 1rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid #ddd;
 }
@@ -667,3 +671,75 @@ footer {
 /* end general configs */
 
 /* about page configs */
+#about-banner {
+    position: relative;
+    margin-block: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+#about-banner img {
+    width: 550px;
+    height: 300px;
+}
+
+#about-container-text {
+    padding-inline: 1rem;
+    text-align: justify;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+}
+
+#coders-benefits-container h2 {
+    margin-bottom: 2rem;
+}
+
+#benefits-box {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.benefit {
+    width: 230px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ddd;
+    padding: 1rem .5rem;
+}
+
+.benefit-icon {
+    width: 64px;
+    margin: 0 auto 1rem;
+}
+
+.benefit-title {
+    margin-bottom: .5rem;
+}
+
+.benefit-description {
+    color: #444;
+    font-size: 15px;
+}
+
+#courses-link {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    text-decoration: none;
+    padding: 10px 15px;
+    background: #16649c;
+    color: #fafafa;
+    border-radius: 30px;
+    font-size: .8rem;
+    transition: .2s;
+}
+
+#courses-link:hover {
+    background: #258bd4;
+    transition: .2s;
+}
